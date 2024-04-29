@@ -13,7 +13,8 @@ public class LightBoard
     lights = new boolean [numRows][numCols];
     for(int i = 0; i < numRows; i++){
       for(int j = 0; j < numCols; j++){
-        lights[i][j] = Math.random() < 0.4;
+        int temp = Math.random();
+        lights[i][j] = temp < 0.4;
       }
     }
 
@@ -34,12 +35,10 @@ public class LightBoard
     if(lights[row][col] && count % 2 == 0){
       return false;
     }
-    if(lights[row][col] && count % 3 == 0){
+    if(!lights[row][col] && count % 3 == 0){
       return true;
     }
     return lights[row][col];
-   
- 
   }
   public boolean[][] getLights()
   {
